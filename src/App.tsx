@@ -20,12 +20,13 @@ const App = () => {
       <div>
         <nav>
           <ul>
+            
           </ul>
         </nav>
 
         <Routes>
           {/* 更新了這部分，使用 element 而不是 component，並移除了 exact 屬性 */}
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/layout" element={<Layout />} />
