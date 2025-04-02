@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 
 interface HoverExpandProps {
-  images: { src: string; alt: string; }[];
+  images: { src: string; alt: string }[]
   initialSelectedIndex?: number
   thumbnailHeight?: number
   modalImageSize?: number
@@ -88,7 +88,7 @@ export default function HoverExpand({
                 className="relative size-96"
               >
                 <img
-                  src={images[selectedIndex].src}
+                  src= {images[selectedIndex].src}
                   alt={`Image ${selectedIndex + 1}`}
                   className="absolute left-1/2 top-1/2  size-full -translate-x-1/2 -translate-y-1/2 object-cover"
                 />

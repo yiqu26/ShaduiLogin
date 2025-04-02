@@ -10,6 +10,7 @@ import Home from '../src/pages/home';
 import About from '../src/pages/about';
 import Login from '../src/pages/login';
 import Layout from '../src/pages/layout'
+import Playground from '../src/pages/playground';
 const CodeText = (props: ComponentProps<'span'>) => {
   return <span {...props} className={cn(props.className, 'bg-muted text-muted-foreground rounded font-mono text-sm p-1')} />
 }
@@ -26,7 +27,9 @@ const App = () => {
 
         <Routes>
           {/* 更新了這部分，使用 element 而不是 component，並移除了 exact 屬性 */}
+
           <Route path="/" element={<Home />} />
+          <Route path="/playground" element={<Playground />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/layout" element={<Layout />} />

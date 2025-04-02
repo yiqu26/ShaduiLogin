@@ -1,19 +1,18 @@
+"use client"
+
 import React from "react"
-//import Image from "next/image"
+import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import "swiper/css/effect-cards"
 import { EffectCards } from "swiper/modules"
 
-//import Image from "next/image"
 import "swiper/css"
 import "swiper/css/effect-coverflow"
 import { SparklesIcon } from "lucide-react"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
 
 import { Badge } from "@/components/ui/badge"
-
-const Image = require('next/image');
 
 interface CarouselProps {
   images: { src: string; alt: string }[]
