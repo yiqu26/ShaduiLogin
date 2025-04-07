@@ -10,9 +10,10 @@ import Login from '../src/pages/login';
 import Layout from '../src/pages/layout'
 import Signup from '../src/pages/signup';
 import Playground from '../src/pages/playground';
-
+import { useEffect } from "react";
 
 const App = () => {
+ 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Router>

@@ -1,5 +1,4 @@
 // src/App.js
-import React from 'react';
 import Header from '@/components/ui/header';
 import Hero from '@/components/ui/hero';
 import Menu from '@/components/ui/menu';

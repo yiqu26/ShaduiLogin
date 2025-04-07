@@ -1,9 +1,7 @@
 // About.js
-import React from 'react';
 import { SparklesIcon } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
-import { CardSwipe } from "@/components/ui/card-swipe"
 import HoverExpand from "@/components/ui/hover-expand"
 const About = () => {
   const imagestest = [

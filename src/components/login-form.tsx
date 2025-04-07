@@ -11,23 +11,20 @@ import {
   AlertTitle,
 } from "@/components/ui/alert"
 import React, { useState } from 'react';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import { useGoogleLogin } from '@react-oauth/google';
 
+//for facebook login
+declare global {
+  interface Window {
+    FB: any;
+  }
+}
 
-
+//for default user account
 const defaultUser = {
   email: 'test@example.com',
   password: 'password123',
 };
-
-const CLIENT_ID = "850757731416-nnjqpq7a5592no9b7c21llo245uobgtq.apps.googleusercontent.com"
-/* custom login
-const login = useGoogleLogin({
-  onSuccess: tokenResponse => console.log(tokenResponse),
-});
-*/
-
 
 export function LoginForm({
   className,
@@ -39,8 +36,7 @@ export function LoginForm({
   const [showAlert, setShowAlert] = useState(false);
   const navigate = useNavigate(); // 使用 useNavigate 鉤子
 
-
-
+  //驗證預設的user account
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email === defaultUser.email && password === defaultUser.password) {
@@ -49,8 +45,32 @@ export function LoginForm({
       setShowAlert(true);
     }
   };
- 
+
+  //google login
+  const loginGoogle = useGoogleLogin({
+    onSuccess: (tokenResponse) => {
+      console.log('登入成功', tokenResponse);
+      navigate('/'); // 模擬登入成功後跳轉首頁
+    },
+    onError: (error) => {
+      console.error('登入失敗', error);
+    }
+  });
+
+  //facebook login
+  const loginFacebook = () => {
+    window.FB.login(function (response: any) {
+      if (response.authResponse) {
+        console.log('Facebook 登入成功 ✅', response);
+        navigate("/");
+      } else {
+        console.log('Facebook 登入取消或失敗 ❌', response);
+      }
+    }, { scope: 'public_profile,email' });
+  };
+
   return (
+
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden">
         <CardContent className="grid p-0 md:grid-cols-2">
@@ -119,19 +139,17 @@ export function LoginForm({
                   </svg>
                   <span className="sr-only">Login with Apple</span>
                 </Button>
-                <GoogleOAuthProvider clientId={CLIENT_ID}>
-                  <Button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%"
-                      height="100%" viewBox="0 0 24 24">
-                      <path
-                        d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                    <span className="sr-only">Login with Google</span>
-                  </Button>
-                </GoogleOAuthProvider>
-                <Button variant="outline" className="w-full">
+                <Button onClick={() => loginGoogle()} >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                    height="100%" viewBox="0 0 24 24">
+                    <path
+                      d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span className="sr-only">Login with Google</span>
+                </Button>
+                <Button onClick={() => loginFacebook()} variant="outline" className="w-full">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%"
                     height="100%" viewBox="0 0 24 24">
                     <path
