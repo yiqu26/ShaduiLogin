@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import ShinyText from '@/components/ui/shinytext';
 
 const cards = [
   { title: 'Hiking', image: 'https://cdn.britannica.com/94/125794-050-FB09B3F4/Hikers-Gore-Range-Mountains-Denver.jpg' },
@@ -114,7 +115,8 @@ export default function TrailSection() {
                 }}
                 className="relative inline-flex items-center justify-center rounded-full px-24 sm:px-28 py-5 sm:py-6 text-xl sm:text-2xl font-bold text-white transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-2xl group border border-white/10"
               >
-                <span className="text-2xl tracking-wider whitespace-nowrap text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">GO!</span>
+                <span className="text-2xl tracking-wider whitespace-nowrap text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"><ShinyText text="GO!" disabled={false} speed={6} className='custom-class' /></span>
+               
               </button>
             </div>
           </motion.div>

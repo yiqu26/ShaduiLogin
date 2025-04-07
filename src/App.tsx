@@ -8,6 +8,7 @@ import Home from '../src/pages/home';
 import About from '../src/pages/about';
 import Login from '../src/pages/login';
 import Layout from '../src/pages/layout'
+import Signup from '../src/pages/signup';
 import Playground from '../src/pages/playground';
 
 
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/layout" element={<Layout />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
           <ThemeToggle />
         </div>
