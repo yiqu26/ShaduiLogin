@@ -9,6 +9,7 @@ import About from '../src/pages/about';
 import Login from '../src/pages/login';
 import Layout from '../src/pages/layout'
 import Signup from '../src/pages/signup';
+import ForgetPassword from '../src/pages/forgetpassword';
 import Playground from '../src/pages/playground';
 import { useEffect } from "react";
 
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/layout" element={<Layout />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/forgetpassword" element={<ForgetPassword />} />
           </Routes>
           <ThemeToggle />
         </div>

@@ -93,7 +93,7 @@ export function LoginForm({
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Welcome back</h1>
                 <p className="text-balance text-muted-foreground">
-                  Login to your Acme Inc account
+                  登入以繼續
                 </p>
               </div>
               <div className="grid gap-2">
@@ -111,7 +111,7 @@ export function LoginForm({
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
                   <a
-                    href="#"
+                    href="/forgetpassword"
                     className="ml-auto text-sm underline-offset-2 hover:underline"
                   >
                     忘記密碼?
@@ -125,7 +125,7 @@ export function LoginForm({
                   required />
               </div>
               <Button type="submit" className="w-full">
-                Login
+                登入
               </Button>
 
               {showAlert && (
@@ -139,7 +139,7 @@ export function LoginForm({
               )}
               <div className="relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border">
                 <span className="relative z-10 bg-background px-2 text-muted-foreground">
-                  Or continue with
+                  或者用下列方式登入
                 </span>
               </div>
               <div className="grid grid-cols-3 gap-4">
@@ -174,9 +174,9 @@ export function LoginForm({
                 </Button>
               </div>
               <div className="text-center text-sm">
-                Don&apos;t have an account?{" "}
+                還沒有帳號嗎?{" "}
                 <a href="/signup" className="underline underline-offset-4">
-                  Sign up
+                  註冊
                 </a>
               </div>
             </div>
